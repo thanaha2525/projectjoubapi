@@ -42,7 +42,7 @@ module.exports.tt = async (req, res) => {
       agent.handleRequest(intentMap);
       const ans = agent.responseMessages_;
       if(ans[0].text == undefined){
-        ans = 'เอ๋ น้องไม่รู้'
+        ans[0].text = 'เอ๋ น้องไม่รู้'
       }
       const qtt = `INSERT INTO history(intent,question,answer)
                    VALUES ('${agent.intent}','${agent.query}','${ans[0].text}')`;
