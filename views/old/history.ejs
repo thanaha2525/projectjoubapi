@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ประวัติการสอบถาม Chatbot</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+</head>
+
+<body>
+    <!--Navbar kub-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"
+        style="background-color: #3d9a40; border-color: #3d9a40;">
+        <div class="navbar-header" style="width: 100%; display: flex; align-items: center">
+
+            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"
+                style="margin-left:15px;  background: rgba(222, 222, 222, 0.3)">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </a>
+
+            <a class="navbar-brand" href=""><img src="image/dft-logo.png" alt="DFT" width="23" style="float:left">&nbsp;
+                <span style="font-size:24px; color:white"> DFTSMART-I</span>
+            </a>
+            <span style="color: #ffffff; margin-left: 2em">Admin1
+                <!--NameAdmin--></span>
+            <div style="margin-left: auto; display: flex;">
+                <ul class="nav navbar-right top-nav" style="margin-left: auto; display: flex; align-items: stretch">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <svg class="bi bi-people-circle" width="2em" height="2em" viewBox="0 0 16 16"
+                                fill="currentColor">
+                                <path
+                                    d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 008 15a6.987 6.987 0 005.468-2.63z" />
+                                <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M8 1a7 7 0 100 14A7 7 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu" style="top: 55px">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-fw fa-power-off">
+                                    </i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Menu kub-->
+    <div class="collapse navbar-collapse navbar-ex1-collapse " id="wrapper" style="margin-top: 50px;">
+        <ul class="nav navbar side-nav " id="sidebar-wrapper">
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#sb_m1" style="color: #ffffff;">
+                    <i class="icon-users-3">
+                    </i>
+                    จัดการ ChatBot
+                    <i class="icon-angle-down pull-right">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#sb_m1" style="color: #ffffff;">
+                    <i class="icon-users-3">
+                    </i>
+                    ประวัติการสอบถาม<br>
+                    <i class="icon-angle-down pull-right">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#sb_m1" style="color: #ffffff;">
+                    <i class="icon-users-3">
+                    </i>
+                    ออกจากระบบ
+                    <i class="icon-angle-down pull-right">
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!--Head Table-->
+    <!--<div class="container tab-content" style="margin-top: 50px;text-align: center;">
+        <div class="tab-pane active" id="tab1">
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-3">
+                        
+                        <div class="col-md-4 text-center"><label class="control-label">ค้นหา :</label></div>
+                        <div class="col-md-6">                            
+                            <select class="form-control"data-bind="###{ width:'100%' }">
+                                <option value="" disabled selected>หมวดคำถาม</option>
+                                <option value="#">๑๒๓๔</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="col-md-3 text-center"><label class="control-label">คำถาม :</label></div>
+                        <div class="col-md-3"><input type="text" class="form-control" maxlength="20" style="width: 90px;"
+                                placeholder="คำถาม"
+                                data-bind="value:Data.SearchT1.StartDate,DateValue:Data.SearchT1.StartDate,Datepicker2ReadOnly:false" />
+                        </div>
+                        <div class="col-md-3 text-center"><label class="control-label">คำตอบ :</label></div>
+                        <div class="col-md-3"><input type="text" class="form-control" maxlength="20" style="width: 90px;"
+                                placeholder="คำตอบ"
+                                data-bind="value:Data.SearchT1.EndDate,DateValue:Data.SearchT1.EndDate,Datepicker2ReadOnly:false" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn col-md-5 btn-primary" data-bind="click:Events.SearchT1">ค้นหา</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    -->
+
+
+    <!--Table-->
+    <div class="container " style="margin-top: 50px;">
+        <div style="font-size:xx-large;margin-bottom: 50px;">ประวัติการสอบถาม</div>
+        <div class="container mb-3 mt-3">
+            <table class="table table-striped table-bordered mytable" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>คำถาม</th>
+                        <th>คำตอบ</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>001</th>
+                        <th>ส้งออกสินค้า</th>
+                        <th>การส่งออกคือการส่งออกสินค้าออกนอกประเทศ</th>                        
+                    </tr>
+                   
+                    <tr>
+                        <th>002</th>
+                        <th>ส้งออกสินค้า</th>
+                        <th>การส่งออกคือการส่งออกสินค้าออกนอกประเทศ</th>                        
+                    </tr>
+                </tbody>
+                
+            </table>
+    
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            $("#wrapper1").toggleClass("myhide");
+            $.toggleClass("side-nav");
+        });
+    </script>
+    <script type="text/javascript" src="~/Scripts/AdminRegisterAccount/dftsmart.ara.citizenregister.list.js@("
+        ?v="+DateTime.Now.Ticks)"></script>
+
+        <script src="https://codejquer,com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajaz/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $('.mytable').DataTable()({
+            searching: false,
+            ordering: false,
+            lengthMenu: [[5, 10, 25, -1], [5, 10, 25, 50, "All"]]
+        })
+    </script>
+
+</body>
+
+
+</html>

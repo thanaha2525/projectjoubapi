@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>จัดการ Chatbot</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <!--Navbar kub-->
+    <nav
+      class="navbar navbar-inverse navbar-fixed-top"
+      role="navigation"
+      style="background-color: #3d9a40; border-color: #3d9a40;"
+    >
+      <div
+        class="navbar-header"
+        style="width: 100%; display: flex; align-items: center;"
+      >
+        <a
+          href="#menu-toggle"
+          class="btn btn-default"
+          id="menu-toggle"
+          style="margin-left: 15px; background: rgba(222, 222, 222, 0.3);"
+        >
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </a>
+
+        <a class="navbar-brand" href=""
+          ><img
+            src="image/dft-logo.png"
+            alt="DFT"
+            width="23"
+            style="float: left;"
+          />&nbsp;
+          <span style="font-size: 24px; color: white;"> DFTSMART-I</span>
+        </a>
+        <span style="color: #ffffff; margin-left: 2em;"
+          >Admin1
+          <!--NameAdmin--></span
+        >
+        <div style="margin-left: auto; display: flex;">
+          <ul class="nav" id="sidebar-wrapper">
+            <li>
+              <a
+                href="/manage"
+                
+                style="color: #ffffff;"
+              >
+              <i class="fa fa-edit" style="font-size: 20px;margin-right: 5px;"></i>
+                จัดการ ChatBot
+                <i class="icon-angle-down pull-right"> </i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/history"
+                
+                style="color: #ffffff;"
+              >
+              <i class="fa fa-history" style="font-size: 20px;margin-right: 5px;"></i>
+                ประวัติการสอบถาม
+                <i class="icon-angle-down pull-right"> </i>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+    </nav>
+    <!--Menu kub-->
+    <div
+      class="collapse navbar-collapse navbar-ex1-collapse toggled in"
+      id="wrapper"
+    >
+      <ul class="nav " id="sidebar-wrapper">
+        <li>
+          <a
+            href="#"
+            data-toggle="collapse"
+            data-target="#sb_m1"
+            style="color: #ffffff;"
+          >
+            <i class="icon-users-3"> </i>
+            จัดการ ChatBot
+            <i class="icon-angle-down pull-right"> </i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+            data-toggle="collapse"
+            data-target="#sb_m1"
+            style="color: #ffffff;"
+          >
+            <i class="icon-users-3"> </i>
+            ประวัติการสอบถาม<br />
+            <i class="icon-angle-down pull-right"> </i>
+          </a>
+        </li>
+      </ul>   
+   </div>
+    </div>
+    <div style="margin-left: 15%;margin-top: 3%;">
+
+      <h3 class="text-primary">จัดการChatbot / ดูคำถามคำตอบ</h3>
+      
+      <style>
+        /* -- well -- */
+.well {
+  padding: 5px 5px 0 5px;
+  margin-bottom: 10px;
+  min-height: 0px;
+}
+
+.well-header {
+  padding: 5px 5px 0 5px;
+  border-bottom: 1px solid transparent;
+  margin-bottom: 0;
+  background-color: #337ab7;
+  border-color: #337ab7;
+  color: white;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+
+.well-body {
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+
+.well-header > .rb {
+  margin-bottom: 0;
+}
+/* -- end well -- */
+
+      </style>
+
+      <div class="well well-header" style="margin-top: 20px;">
+        <div class="rb">
+          <div class="wbf">
+            <label class="control-label" data-toggle="collapse" data-target="#tb00000"> ข้อมูลคำถาม / คำตอบ</label>
+          </div>
+        </div>
+      </div>
+      <div class="well well-body collapse in" id="tb00000" >
+        <div class="row" style="padding: 5px;">
+          <div class="col-md-2 text-left"><label class="control-label required" data-bind="css:{required:true}">กลุ่มคำถาม</label></div>
+          <div class="col-md-4"><input type="text" class="form-control" readonly="readonly" value="<%= rss.name  %> "></div>
+        </div>
+        <div class="row"  style="padding: 5px;">
+          <div class="col-md-2 text-left"><label class="control-label required" data-bind="css:{required:true}">คำถาม</label></div>
+          <div class="col-md-4"><input type="text" class="form-control" readonly="readonly" value="<%= rs.intent  %> "></div>
+
+          <form action="/savechange" method="post" id="answer"> 
+        </div>
+        <div class="row"  style="padding: 5px;padding-bottom: 10px;">
+          <div class="col-md-2 text-left"><label class="control-label">คำตอบ</label></div>
+          <div class="col-md-4"><textarea type="text" class="form-control" name="answer" id="answer"><%= rs.response  %></textarea></div>
+        </div>
+      </div>
+      <span>
+
+      
+        <a class="btn btn-default wb10" href="/manage">ย้อนกลับ</a>
+        <input type="hidden" name='id' value="<%= rs.id %>" >
+        <button class="btn btn-primary" href="">บันทึก</button></form>
+    
+      </span>
+    </div>
+  </body>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $("#wrapper1").toggleClass("myhide");
+        $.toggleClass("side-nav");
+      });
+    </script>
+  </body>
+</html>
