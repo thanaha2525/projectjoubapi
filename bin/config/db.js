@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 
 var db = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '123456',
+  host     : 'heroku_44e8d37e9d01440',
+  user     : 'bde278f5d67f80',
+  password : '54565268',
   database : 'dftbot'
 });
  
