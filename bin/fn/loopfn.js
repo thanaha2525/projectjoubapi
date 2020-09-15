@@ -41,12 +41,16 @@ module.exports.tt = async (req, res) => {
 
       agent.handleRequest(intentMap);
       const ans = agent.responseMessages_;
+      if(ans == undefined){
+        ans = 'เอ๋ น้องไม่รู้'
+      }
       const qtt = `INSERT INTO history(intent,question,answer)
                    VALUES ('${agent.intent}','${agent.query}','${ans[0].text}')`;
                    console.log(qtt)
           db.query(qtt, (err, rs) => {
         if (err) {
           console.log(err);
+          return
         }
         console.log("save success");
         return;
