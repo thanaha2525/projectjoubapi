@@ -10,9 +10,9 @@ var db = mysql.createConnection({
   // user     : 'root',
   // password : '123456',
   // database : 'dftbot'
-  
+
 });
- 
+
 db.connect((err) => {
   if(!err)
       console.log('Database is connected!');

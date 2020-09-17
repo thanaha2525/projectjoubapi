@@ -11,3 +11,4 @@ module.exports = (app) => {
   app.post("/manage/intent/create", manage.createAnswer);
   app.post("/savechange", manage.updateAnswer);
 };
+
