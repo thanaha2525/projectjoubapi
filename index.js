@@ -17,6 +17,6 @@ require("./routes/dialogflowRoute")(app);
 require("./routes/fulfillmentRoutes")(app);
 require("./routes/manternate")(app);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT);
